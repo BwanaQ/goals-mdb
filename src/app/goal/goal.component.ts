@@ -1,11 +1,11 @@
-import { Goal } from './goal';
-import { Component } from '@angular/core';
+import { Goal } from './../goal';
+import { Component, OnInit } from '@angular/core';
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-goal',
+  templateUrl: './goal.component.html',
+  styleUrls: ['./goal.component.css'],
 })
-export class AppComponent {
+export class GoalComponent implements OnInit {
   goals: Goal[] = [
     {
       id: 1,
@@ -37,4 +37,6 @@ export class AppComponent {
   title = 'goals';
   goal = 'recap angular';
   constructor() {}
+
+  ngOnInit(): void {}
 }
