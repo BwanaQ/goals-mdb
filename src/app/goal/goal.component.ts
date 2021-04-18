@@ -11,13 +11,13 @@ export class GoalComponent implements OnInit {
       1,
       'Watch finding Nemo',
       'Find an online version and watch merlin find his son',
-      new Date(2020, 3, 14)
+      new Date(2022, 3, 14)
     ),
     new Goal(
       2,
       'Buy Cookies',
       'I have to buy cookies for the parrot',
-      new Date(2019, 6, 9)
+      new Date(2021, 6, 9)
     ),
     new Goal(
       3,
@@ -29,7 +29,7 @@ export class GoalComponent implements OnInit {
       4,
       'Get Dog Food',
       'Pupper likes expensive snacks',
-      new Date(2019, 0, 18)
+      new Date(2022, 0, 18)
     ),
     new Goal(5, 'Solve math homework', 'Damn Math', new Date(2019, 2, 14)),
     new Goal(
@@ -44,9 +44,15 @@ export class GoalComponent implements OnInit {
   toggleDetails(index) {
     this.goals[index].showDescription = !this.goals[index].showDescription;
   }
-  completeGoal(isComplete, index) {
+  deleteGoal(isComplete, index) {
     if (isComplete) {
-      this.goals.splice(index, 1);
+      let toDelete = confirm(
+        `Are you sure you want to delete ${this.goals[index].name}?`
+      );
+
+      if (toDelete) {
+        this.goals.splice(index, 1);
+      }
     }
   }
   constructor() {}
